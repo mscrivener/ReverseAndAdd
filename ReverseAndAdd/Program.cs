@@ -14,14 +14,26 @@ namespace ReverseAndAdd
             Console.WriteLine("Please enter a positive integer to start:");
 
             //declare variables
-            int counter = 1;
             int input = 0;
-            int output = 0;
-            int sum = 0;
+                     
 
             //get the input integer
             int.TryParse(Console.ReadLine(), out input);
             //TODO: handle bad input
+
+            //
+            ProcessNumber(input, 1);
+                                  
+            
+            //wait
+            Console.ReadLine();
+        }
+
+        
+        public static void ProcessNumber(int input, int counter)
+        {
+            int output = 0;
+            int sum = 0;
 
             //reverse the number
             output = Logik.NumberHandler.ReverseInput(input);
@@ -31,14 +43,12 @@ namespace ReverseAndAdd
 
             //write output to console
             Console.WriteLine(counter.ToString() + ". " + input.ToString() + " + " + output.ToString() + " = " + sum.ToString());
-
+            
             //count up
             counter++;
-            
-            //wait
-            Console.ReadLine();
-        }
 
-        
+            if (input != output)
+                ProcessNumber(sum, counter);
+        }
     }
 }
