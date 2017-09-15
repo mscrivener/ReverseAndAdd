@@ -13,19 +13,32 @@ namespace ReverseAndAdd
             Console.WriteLine("Welcome to \"Reverse and Add\"");
             Console.WriteLine("Please enter a positive integer to start:");
 
-            //get the input integer
+            //declare variables
+            int counter = 1;
             int input = 0;
+            int output = 0;
+            int sum = 0;
+
+            //get the input integer
             int.TryParse(Console.ReadLine(), out input);
             //TODO: handle bad input
 
             //reverse the number
-            int output = Logik.NumberHandler.ReverseInput(input);
+            output = Logik.NumberHandler.ReverseInput(input);
+
+            //get the sum
+            sum = Logik.NumberHandler.AddNumbers(input, output);
 
             //write output to console
-            Console.WriteLine(input.ToString() + " + " + output.ToString() + " = " + (input + output).ToString());
+            Console.WriteLine(counter.ToString() + ". " + input.ToString() + " + " + output.ToString() + " = " + sum.ToString());
 
+            //count up
+            counter++;
+            
             //wait
             Console.ReadLine();
         }
+
+        
     }
 }

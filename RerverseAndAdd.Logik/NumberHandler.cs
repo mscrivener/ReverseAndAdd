@@ -13,7 +13,7 @@ namespace ReverseAndAdd.Logik
         /// Assumption: the input is a positive integer
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns>the integer reversed</returns>
         public static int ReverseInput(int input)
         {
             //turn input into string, then array of char
@@ -31,5 +31,19 @@ namespace ReverseAndAdd.Logik
             return reversed;
 
         }
+
+        /// <summary>
+        /// Adds the two numbers together and return the sum
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="reversed"></param>
+        /// <returns>sum</returns>
+        public static int AddNumbers(int original, int reversed)
+        {
+            return original + reversed;
+        }
+
+        
+       
     }
 }

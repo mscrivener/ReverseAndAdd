@@ -14,7 +14,22 @@ namespace ReverseAndAdd.Test
             int expected = 911;
 
             //Act
-            int actual = ReverseAndAdd.Logik.NumberHandler.ReverseInput(original);
+            int actual = Logik.NumberHandler.ReverseInput(original);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_AddTwoNumbers()
+        {
+            //Arrange
+            int firstNumber = 2;
+            int secondNumber = 3;
+            int expected = 5;
+
+            //Act
+            int actual = Logik.NumberHandler.AddNumbers(firstNumber, secondNumber);
 
             //Assert
             Assert.AreEqual(expected, actual);
