@@ -14,7 +14,7 @@ namespace ReverseAndAdd.Logik
         /// </summary>
         /// <param name="input"></param>
         /// <returns>the integer reversed</returns>
-        public static int ReverseInput(int input)
+        public static long ReverseInput(long input)
         {
             //turn input into string, then array of char
             char[] original = input.ToString().ToCharArray();
@@ -23,8 +23,8 @@ namespace ReverseAndAdd.Logik
             Array.Reverse(original);
 
             //convert to int
-            int reversed = 0;
-            int.TryParse(new string(original), out reversed);
+            long reversed = 0;
+            long.TryParse(new string(original), out reversed);
             //TODO: handle if this goes wrong
 
             //return integer value of reverse char array
@@ -38,7 +38,7 @@ namespace ReverseAndAdd.Logik
         /// <param name="original"></param>
         /// <param name="reversed"></param>
         /// <returns>sum</returns>
-        public static int AddNumbers(int original, int reversed)
+        public static long AddNumbers(long original, long reversed)
         {
             return original + reversed;
         }

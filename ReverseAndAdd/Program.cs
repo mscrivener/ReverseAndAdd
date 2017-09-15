@@ -13,27 +13,31 @@ namespace ReverseAndAdd
             Console.WriteLine("Welcome to \"Reverse and Add\"");
             Console.WriteLine("Please enter a positive integer to start:");
 
-            //declare variables
-            int input = 0;
-                     
 
-            //get the input integer
-            int.TryParse(Console.ReadLine(), out input);
-            //TODO: handle bad input
-
-            //
-            ProcessNumber(input, 1);
-                                  
+            GetFreshInput();                                  
             
             //wait
             Console.ReadLine();
         }
 
-        
-        public static void ProcessNumber(int input, int counter)
+        public static void GetFreshInput()
         {
-            int output = 0;
-            int sum = 0;
+            //declare variables
+            long input = 0;
+
+
+            //get the input integer
+            long.TryParse(Console.ReadLine(), out input);
+            //TODO: handle bad input
+
+            //
+            ProcessNumber(input, 1);
+        }
+        
+        public static void ProcessNumber(long input, int counter)
+        {
+            long output = 0;
+            long sum = 0;
 
             //reverse the number
             output = Logik.NumberHandler.ReverseInput(input);
@@ -41,14 +45,20 @@ namespace ReverseAndAdd
             //get the sum
             sum = Logik.NumberHandler.AddNumbers(input, output);
 
-            //write output to console
-            Console.WriteLine(counter.ToString() + ". " + input.ToString() + " + " + output.ToString() + " = " + sum.ToString());
-            
-            //count up
-            counter++;
-
+            //if not yet a palindrome, recursively invoke with counter add 
+            //TODO: one digit input should not end this!
             if (input != output)
+            {
+                //write output to console
+                Console.WriteLine(counter.ToString() + ". " + input.ToString() + " + " + output.ToString() + " = " + sum.ToString());
+
+                //count up
+                counter++;
+
                 ProcessNumber(sum, counter);
+            }
+            else
+                GetFreshInput();
         }
     }
 }
