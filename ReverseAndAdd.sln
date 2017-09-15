@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseAndAdd", "ReverseAndAdd\ReverseAndAdd.csproj", "{402F1E52-BE66-4B2F-9C4D-165ED79CE8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RerverseAndAdd.Logik", "RerverseAndAdd.Logik\RerverseAndAdd.Logik.csproj", "{365A889D-6D9B-4890-A3AD-E4A888F2F951}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseAndAdd.Logik", "RerverseAndAdd.Logik\ReverseAndAdd.Logik.csproj", "{365A889D-6D9B-4890-A3AD-E4A888F2F951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseAndAdd.Test", "ReverseAndAdd.Test\ReverseAndAdd.Test.csproj", "{64F72D9A-3AB6-4B1D-BD32-38D17B32E9D9}"
 EndProject
