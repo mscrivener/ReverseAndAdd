@@ -10,11 +10,11 @@ namespace ReverseAndAdd.Test
         public void Test_ReverseNumber()
         {
             //Arrange
-            long original = 119;
-            long expected = 911;
+            ulong original = 119;
+            ulong expected = 911;
 
             //Act
-            long actual = Logik.NumberHandler.ReverseInput(original);
+            ulong actual = Logik.NumberHandler.ReverseInput(original);
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -24,12 +24,27 @@ namespace ReverseAndAdd.Test
         public void Test_AddTwoNumbers()
         {
             //Arrange
-            long firstNumber = 2;
-            long secondNumber = 3;
-            long expected = 5;
+            ulong firstNumber = 2;
+            ulong secondNumber = 3;
+            ulong expected = 5;
 
             //Act
-            long actual = Logik.NumberHandler.AddNumbers(firstNumber, secondNumber);
+            ulong actual = Logik.NumberHandler.AddNumbers(firstNumber, secondNumber);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_IsPalindrome()
+        {
+            //Arrange
+            ulong original = 4;
+            ulong reversed = 4;
+            bool expected = true;
+
+            //Act
+            bool actual = Logik.NumberHandler.IsPalindrome(original, reversed);
 
             //Assert
             Assert.AreEqual(expected, actual);
