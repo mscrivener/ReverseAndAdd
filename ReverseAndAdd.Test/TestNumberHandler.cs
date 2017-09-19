@@ -21,6 +21,15 @@ namespace ReverseAndAdd.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void Test_ReverseNumberException()
+        {
+            ulong original = 10120917180917190219;
+            
+            Logik.NumberHandler.ReverseInput(original);
+        }
+
+        [TestMethod]
         public void Test_AddTwoNumbers()
         {
             //Arrange

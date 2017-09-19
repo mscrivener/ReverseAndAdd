@@ -8,41 +8,62 @@ namespace ReverseAndAdd
 {
     class Program
     {
+        private const int startCounterValue = 1;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to \"Reverse and Add\"");
 
             try
             {
-                GetInput();
+                //declare variable
+                ulong input = 0;
+
+                input = GetUserInput();
+
+                //TODO: only keep one if this was for real, but it's a test, so I'm just providing topics for conversation
+                //Recursive implementation
+                //ProcessNumberRecursive(input, startCounterValue);
+
+                //Loop implementation
+                ProcessNumberLoop(input, startCounterValue);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
-            //wait
+
+            //wait and finish if an exeption is shown
+            Console.WriteLine("Thanks for trying \"Reverse and Add\". Hit enter to finish:");
             Console.ReadLine();
         }
 
-        public static void GetInput()
+        /// <summary>
+        /// reads the user proveded input
+        /// makes an assumption that a whole, non-negative number is entered
+        /// </summary>
+        /// <returns>ulong representation of user input</returns>
+        public static ulong GetUserInput()
         {
             Console.WriteLine("Please enter a positive integer to start a sequence:");
 
-            //declare variables
+            //declare variable
             ulong input = 0;
-            
+
             //get the input integer
             ulong.TryParse(Console.ReadLine(), out input);
             //TODO: handle bad input
 
-            //Recursive implementation
-            //ProcessNumberRecursive(input, 1);
-
-            //Loop implementation
-            ProcessNumberLoop(input, 1);
+            return input;
         }
-        
+
+        #region "Processing numbers"
+
+        /// <summary>
+        /// Recursive implementation of the rules
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="counter"></param>
         public static void ProcessNumberRecursive(ulong input, int counter)
         {
             ulong output = 0;
@@ -56,8 +77,6 @@ namespace ReverseAndAdd
 
             
             //if not yet a palindrome, recursively invoke with counter add 
-            //also, definitely write the first iteration
-            //TODO: clean this up!
             if (!Logik.NumberHandler.IsPalindrome(input, output) || counter == 1)
             {
                 WriteResultToConsole(counter, input, output, sum);
@@ -68,9 +87,14 @@ namespace ReverseAndAdd
                 ProcessNumberRecursive(sum, counter);
             }
             else //get a new user input
-                GetInput();
+                ProcessNumberRecursive(GetUserInput(), startCounterValue); 
         }
 
+        /// <summary>
+        /// implementation usign do/while
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="counter"></param>
         public static void ProcessNumberLoop(ulong input, int counter)
         {
             ulong reversedInput = 0;
@@ -99,9 +123,18 @@ namespace ReverseAndAdd
             } while (!Logik.NumberHandler.IsPalindrome(input, reversedInput));
 
             //run a new round with user input
-            GetInput();
+            ProcessNumberLoop(GetUserInput(), startCounterValue);
         }
 
+#endregion
+
+        /// <summary>
+        /// for consistent formatting, use this to write a result to the console
+        /// </summary>
+        /// <param name="counter"></param>
+        /// <param name="firstnumber"></param>
+        /// <param name="secondnumber"></param>
+        /// <param name="sum"></param>
         public static void WriteResultToConsole(int counter, ulong firstnumber, ulong secondnumber, ulong sum)
         {
             //write output to console
